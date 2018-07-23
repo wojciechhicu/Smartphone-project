@@ -1,0 +1,50 @@
+body {
+  background: #f5f5f5; }
+
+/*custom styles for menu */
+.custom-nav {
+  -webkit-box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.75);
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  background: white; }
+
+.custom-center {
+  width: 90%;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto; }
+
+/*Custom sliders */
+.custom-slider.rzslider .rz-bar {
+  background: #ffe4d1;
+  height: 2px; }
+
+.custom-slider.rzslider .rz-pointer:after {
+  display: none; }
+
+.custom-slider.rzslider .rz-pointer {
+  width: 10px;
+  height: 10px;
+  top: auto;
+  bottom: 0;
+  outline: none; }
+
+/*custom content section with cards */
+.custom-card {
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 1px;
+  margin: 2px;
+  background: white; }
+
+.custom-container-padding {
+  padding-top: 10px; }
+
+/*# sourceMappingURL=styles.css.map */
