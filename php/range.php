@@ -1,5 +1,5 @@
 <?php
-    $conn = mysqli_connect("localhost","root","","project");
+    require_once("database.php");// require database connection
     // min/max value of phone display size
     $query_size_min = mysqli_query($conn, "SELECT MIN(size) AS min FROM smartphones");
     $query_size_max = mysqli_query($conn, "SELECT MAX(size) AS max FROM smartphones");

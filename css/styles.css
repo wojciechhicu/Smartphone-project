@@ -9,9 +9,6 @@ body {
   padding-top: 10px;
   padding-right: 10px;
   padding-left: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 10px;
   background: white; }
 
 .custom-center {
@@ -19,6 +16,9 @@ body {
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto; }
+
+.custom-hamburger {
+  transition: all 1s; }
 
 /*Custom sliders */
 .custom-slider.rzslider .rz-bar {
@@ -41,10 +41,31 @@ body {
   -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
   border-radius: 1px;
-  margin: 2px;
-  background: white; }
+  margin: 10px;
+  background: white;
+  font-size: 12px;
+  transition: all 0.2s;
+  height: 150px;
+  width: 500px;
+  display: grid; }
 
-.custom-container-padding {
-  padding-top: 10px; }
+.custom-card:hover {
+  transform: scale(1.06);
+  z-index: 3;
+  cursor: pointer; }
+
+.marginTop {
+  margin-top: 5px; }
+
+.custom-image {
+  color: white;
+  height: 150px;
+  width: 150px;
+  background: url(../images/iphone.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.custom-container {
+  transition: all 1s; }
 
 /*# sourceMappingURL=styles.css.map */

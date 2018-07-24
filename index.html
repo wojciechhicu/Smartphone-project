@@ -12,6 +12,7 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
     <!-- AngularJs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.js"></script>
@@ -29,7 +30,7 @@
     <div class="container-fluid">
         <div class="row">
             <!--left menu-->
-            <ul class="nav flex-column col-xs-12 col-sm-4 col-md-3 col-lg-2 custom-nav">
+            <ul class="nav flex-column col-xs-12 col-sm-4 col-md-3 col-lg-2 custom-nav animated delay-1s" id="menu">
 
                 <li class="nav-item custom-center">
                     <label for="name">Nazwa modelu</label>
@@ -60,62 +61,73 @@
                 </li>
                 <li class="nav-item custom-center">
                     <div>Rozdzielczość ekranu</div>
-                    <div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="720x1" value="option1">
-                            <label class="form-check-label" for="720x1">720x1440px</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="720x2" value="option2">
-                            <label class="form-check-label" for="720x2">720x1920px</label>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="720x3" value="option1">
-                            <label class="form-check-label" for="720x3">720x1920px</label>
-                        </div>
 
-
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="720x4" value="option2">
-                            <label class="form-check-label" for="720x4">720x1440px</label>
-                        </div>
+                    <div ng-repeat="check in checks" ng-show="!$first" class="form-check">
+                        <input class="form-check-input" type="checkbox" id="{{check.res}}" value="{{check.res}}">
+                        <label class="form-check-label" for="{{check.res}}">{{check.res}}px</label>
                     </div>
 
-                    <div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="480x1" value="option1">
-                            <label class="form-check-label" for="480x1">480x960px</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="480x2" value="option2">
-                            <label class="form-check-label" for="480x2">480x960px</label>
-                        </div>
-                    </div>
                 </li>
             </ul>
             <!-- end of menu-->
-            <!--  -->
+            <div class="btn-group-toggle custom-hamburger" data-toggle="buttons">
+                <label class="btn activeTogg toggler">
+                    <input type="checkbox"><img src="images/hamburger.png">
+                </label>
+            </div>
 
-            <div class="container-fluid col-lg-9">
-                <div class="row justify-content-lg-center">
-                   <div class="col-lg-9">Znaleziono {{ count.length}} / {{ phones.length}} elementow.</div>
+
+
+
+
+            <!-- content side -->
+            <div class="container-fluid col-xs-12 col-sm-7 col-md-8 col-lg-9">
+                <div class="row justify-content-center">
+                    <div class="col-12">Znaleziono {{ count.length}} / {{ phones.length}} elementow.</div>
+
+                    <!-- cards with filtered data -->
                     <div ng-repeat="phone in phones | filter: phone.name = name | filter: searchSize | filter: searchRam | filter: searchBattery | filter: searchMemory
-                       | limitTo: 9 as count" class="col-lg-3 custom-card">
-                        <div>Nazwa: {{phone.name}}</div>
-                        <div>System: {{phone.system}}</div>
-                        <div>Ram: {{phone.ram}}MB</div>
-                        <div>Memory: {{phone.memory}}GB</div>
-                        <div>Battery: {{phone.battery}}mAh</div>
-                        <div>Resolution: {{phone.resolution}}</div>
-                        <div>Ekran: {{phone.size}}&quot;</div>
+                       | limitTo: 10 as count" class="custom-card">
+                        <div class="row">
+                            <div class="col-lg-4 custom-image">
+
+                            </div>
+
+                            <div class="col-lg-8 row">
+                                <div class="col-12">
+                                    <h6>{{phone.name}}</h6>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="marginTop">
+                                        <img src="images/icons/png/006-hardware.png" /> {{phone.size}}&quot
+                                    </div>
+                                    <div class="marginTop">
+                                        <img src="images/icons/png/001-ram.png" /> {{phone.ram}} MB
+                                    </div>
+                                    <div class="marginTop">
+                                        <img src="images/icons/png/003-battery.png" /> {{phone.battery}} mAh
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="marginTop">
+                                        <img src="images/icons/png/005-1080p-hd-tv.png" /> {{phone.resolution}}px
+                                    </div>
+                                    <div class="marginTop">
+                                        <img src="images/icons/png/os.png" /> {{phone.system}}
+                                    </div>
+                                    <div class="marginTop">
+                                        <img src="images/icons/png/004-chip.png" /> {{phone.memory}} GB
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <!-- end of filter-->
                 </div>
             </div>
         </div>
     </div>
-
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

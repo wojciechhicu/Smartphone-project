@@ -1,5 +1,5 @@
 <?php
-    $conn = mysqli_connect("localhost","root","","project");
+    require_once("database.php");// require database connection
     $output = array();
     $query = "SELECT * FROM smartphones";
     $result = mysqli_query($conn, $query);
