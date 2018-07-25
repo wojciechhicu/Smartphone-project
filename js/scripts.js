@@ -5,29 +5,42 @@ var app = angular.module("MyApp", ['rzModule'])
 app.controller("searchController", function ($scope, $http) {
 
 
-    //toggle menu
+    //creating toggler, using animate.css animations
     $(".toggler").click(function(){
         if($(".toggler").hasClass("activeTogg")){
             
-            $("#menu").removeClass("slideInLeft");
-            $(".toggler").removeClass("activeTogg");
-            $("#menu").addClass("slideOutLeft");
+            $("#menu").removeClass("slideInLeft");      // removing class if this isnt first click
+            $(".toggler").removeClass("activeTogg");    // remove activetoggler of was clicked
+            $("#menu").addClass("slideOutLeft");        // adding animation to hide menu
             setTimeout(function(){
-                $("#menu").css("display","none");
+                $("#menu").hide();                      // after animation end, hide menu
             }, 1000)
             
             
         }
         else{
-            $("#menu").show();
-            $("#menu").removeClass("slideOutLeft");
-            $(".toggler").addClass("activeTogg");
-            $("#menu").addClass("slideInLeft");
+            $("#menu").show();                          // show menu
+            $("#menu").removeClass("slideOutLeft");     // remove class which was added after click to hide menu
+            $(".toggler").addClass("activeTogg");       // adding activetogg class for manipulating show/hide
+            $("#menu").addClass("slideInLeft");         // adding animation to show menu
             
             
         }
             
     });
+    
+    //list style / block style content
+    $("#list").click(function(){
+        $(".custom-card").addClass("col-12");   //list style content is displaying with 12 column size from boostrap
+    });
+    
+    $("#block").click(function(){
+        $(".custom-card").removeClass("col-12");    // default view is block style
+    });
+    
+    
+    
+    
             //ajax searching for min/max value of phone components
             $http.get("php/range.php")
                 .then(function (result) {

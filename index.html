@@ -63,41 +63,43 @@
                     <div>Rozdzielczość ekranu</div>
 
                     <div ng-repeat="check in checks" ng-show="!$first" class="form-check">
-                        <input class="form-check-input" type="checkbox" id="{{check.res}}" value="{{check.res}}">
-                        <label class="form-check-label" for="{{check.res}}">{{check.res}}px</label>
+                        <input class="form-check-input form-check-inline" type="checkbox" id="{{check.res}}" value="{{check.res}}">
+                        <label class="form-check-label" for="{{check.res}}">{{check.res}}</label>
                     </div>
 
                 </li>
             </ul>
             <!-- end of menu-->
+
+            <!-- menu toggler adding class activeTogg to display menu-->
             <div class="btn-group-toggle custom-hamburger" data-toggle="buttons">
                 <label class="btn activeTogg toggler">
-                    <input type="checkbox"><img src="images/hamburger.png">
+                    <input type="checkbox"><img src="images/icons/png/hamburger.png">
                 </label>
             </div>
-
-
-
-
 
             <!-- content side -->
             <div class="container-fluid col-xs-12 col-sm-7 col-md-8 col-lg-9">
                 <div class="row justify-content-center">
-                    <div class="col-12">Znaleziono {{ count.length}} / {{ phones.length}} elementow.</div>
-
+                    <!-- top content nav with counting and icons list/blocks -->
+                    <div class="d-flex col-12">
+                        <div class="p-2 flex-grow-1">Znaleziono {{ count.length}} / {{ phones.length}} elementow.</div>
+                        <div class="p-2 custom-icons" id="list"><img src="images/icons/png/001-list.png" title="List style content"></div>
+                        <div class="p-2 custom-icons" id="block"><img src="images/icons/png/002-four-squares-list.png" title="Block style content"></div>
+                    </div>
                     <!-- cards with filtered data -->
                     <div ng-repeat="phone in phones | filter: phone.name = name | filter: searchSize | filter: searchRam | filter: searchBattery | filter: searchMemory
-                       | limitTo: 10 as count" class="custom-card">
+                       | limitTo: 8 as count" class="custom-card">
                         <div class="row">
-                            <div class="col-lg-4 custom-image">
+                            <div class="col-4 custom-image">
 
                             </div>
 
-                            <div class="col-lg-8 row">
+                            <div class="col-8 row">
                                 <div class="col-12">
                                     <h6>{{phone.name}}</h6>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-6">
                                     <div class="marginTop">
                                         <img src="images/icons/png/006-hardware.png" /> {{phone.size}}&quot
                                     </div>
@@ -108,7 +110,7 @@
                                         <img src="images/icons/png/003-battery.png" /> {{phone.battery}} mAh
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-m6">
                                     <div class="marginTop">
                                         <img src="images/icons/png/005-1080p-hd-tv.png" /> {{phone.resolution}}px
                                     </div>

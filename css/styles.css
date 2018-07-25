@@ -1,5 +1,6 @@
 body {
-  background: #f5f5f5; }
+  background: #f5f5f5;
+  font-size: 14px; }
 
 /*custom styles for menu */
 .custom-nav {
@@ -9,7 +10,8 @@ body {
   padding-top: 10px;
   padding-right: 10px;
   padding-left: 10px;
-  background: white; }
+  background: white;
+  height: 800px; }
 
 .custom-center {
   width: 90%;
@@ -20,6 +22,16 @@ body {
 .custom-hamburger {
   transition: all 1s; }
 
+/* hide hamburger menu and nav icons in mobile view */
+@media screen and (max-width: 768px) {
+  .custom-hamburger {
+    display: none; }
+
+  .btn-group-toggle {
+    display: none; }
+
+  .custom-icons {
+    display: none; } }
 /*Custom sliders */
 .custom-slider.rzslider .rz-bar {
   background: #ffe4d1;
@@ -35,6 +47,10 @@ body {
   bottom: 0;
   outline: none; }
 
+/* nav icons to display list/block */
+.custom-icons {
+  cursor: pointer; }
+
 /*custom content section with cards */
 .custom-card {
   -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
@@ -46,8 +62,9 @@ body {
   font-size: 12px;
   transition: all 0.2s;
   height: 150px;
-  width: 500px;
-  display: grid; }
+  width: 450px;
+  display: grid;
+  overflow: hidden; }
 
 .custom-card:hover {
   transform: scale(1.06);
@@ -61,9 +78,10 @@ body {
   color: white;
   height: 150px;
   width: 150px;
-  background: url(../images/iphone.jpg);
+  background: url(../images/iphone2.jpg);
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-position: center;
+  background-size: contain; }
 
 .custom-container {
   transition: all 1s; }
