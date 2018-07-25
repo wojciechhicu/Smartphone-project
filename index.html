@@ -6,26 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Smartphones</title>
-
-    <!-- Bootstrap CSS -->
+    <!-- STYLES: Bootstrap CSS first, then website CSS, then animate.css for animations, then sliders.css, then jQueryUI.css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-
-    <!-- Main CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-
-    <!-- AngularJs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.js"></script>
-
-    <!-- scripts -->
-    <script src="js/scripts.js"></script>
-
-    <!-- slider directive -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/6.0.0/rzslider.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/6.0.0/rzslider.min.css">
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
-
 <body ng-controller="searchController">
     <div class="container-fluid">
         <div class="row">
@@ -72,7 +59,7 @@
             <!-- end of menu-->
 
             <!-- menu toggler adding class activeTogg to display menu-->
-            <div class="btn-group-toggle custom-hamburger" data-toggle="buttons">
+            <div class="btn-group-toggle custom-hamburger" title="Schowaj menu" data-toggle="buttons">
                 <label class="btn activeTogg toggler">
                     <input type="checkbox"><img src="images/icons/png/hamburger.png">
                 </label>
@@ -84,8 +71,8 @@
                     <!-- top content nav with counting and icons list/blocks -->
                     <div class="d-flex col-12">
                         <div class="p-2 flex-grow-1">Znaleziono {{ count.length}} / {{ phones.length}} elementow.</div>
-                        <div class="p-2 custom-icons" id="list"><img src="images/icons/png/001-list.png" title="List style content"></div>
-                        <div class="p-2 custom-icons" id="block"><img src="images/icons/png/002-four-squares-list.png" title="Block style content"></div>
+                        <div class="p-2 custom-icons" id="list"><img src="images/icons/png/001-list.png" title="Widok listy"></div>
+                        <div class="p-2 custom-icons" id="block"><img src="images/icons/png/002-four-squares-list.png" title="Widok kafelkowy"></div>
                     </div>
                     <!-- cards with filtered data -->
                     <div ng-repeat="phone in phones | filter: phone.name = name | filter: searchSize | filter: searchRam | filter: searchBattery | filter: searchMemory
@@ -129,12 +116,14 @@
             </div>
         </div>
     </div>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- jQuery first, then jQueryUI, then angularJS, then sliders for angular, then popper for bootstrap, then bootstrap, JS last -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/6.0.0/rzslider.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>
