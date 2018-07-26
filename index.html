@@ -46,14 +46,15 @@
                     <rzslider class="custom-slider" rz-slider-model="battery.minValue" rz-slider-high="battery.maxValue" rz-slider-options="battery.options"></rzslider>
 
                 </li>
+                
+                <!-- displaying checkboxes from DB where counted resolution > 20 -->
                 <li class="nav-item custom-center">
                     <div>Rozdzielczość ekranu</div>
 
-                    <div ng-repeat="check in checks" ng-show="!$first" class="form-check">
-                        <input class="form-check-input form-check-inline" type="checkbox" id="{{check.res}}" value="{{check.res}}">
+                    <div ng-repeat="check in checks" class="form-check">
+                        <input class="form-check-input form-check-inline test" ng-model="selected" ng-checked="reso(check)" ng-click="toggleReso(check)" type="checkbox" id="{{check.res}}" value="{{check.res}}">
                         <label class="form-check-label" for="{{check.res}}">{{check.res}}</label>
                     </div>
-
                 </li>
             </ul>
             <!-- end of menu-->
@@ -75,8 +76,7 @@
                         <div class="p-2 custom-icons" id="block"><img src="images/icons/png/002-four-squares-list.png" title="Widok kafelkowy"></div>
                     </div>
                     <!-- cards with filtered data -->
-                    <div ng-repeat="phone in phones | filter: phone.name = name | filter: searchSize | filter: searchRam | filter: searchBattery | filter: searchMemory
-                       | limitTo: 8 as count" class="custom-card">
+                    <div ng-repeat="phone in phones | filter: phone.name = name | filter: searchSize | filter: searchRam | filter: searchBattery | filter: searchMemory | limitTo: 8 as count" class="custom-card">
                         <div class="row">
                             <div class="col-4 custom-image">
 

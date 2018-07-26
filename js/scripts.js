@@ -16,7 +16,7 @@ app.controller("searchController", function ($scope, $http) {
                 setTimeout(function () {
                     $("#menu").hide(); // after animation end, hide menu
                 }, 1000);
-                $(".custom-hamburger").attr("title","Pokaż menu");
+                $(".custom-hamburger").attr("title", "Pokaż menu");
 
 
             } else {
@@ -98,36 +98,55 @@ app.controller("searchController", function ($scope, $http) {
             // display data from database and create autocomplete for searching field
             $http.get("php/display.php")
                 .then(function (response) {
-                //create variable from JSON OBJ sent from display.php
+                    //create variable from JSON OBJ sent from display.php
                     $scope.phones = response.data;
 
                     // creating autocomplete function
-                        var availableTags = [];     // creating empty array
+                    var availableTags = []; // creating empty array
 
-                    
-                
+
+
                     // fill array with data from JSON from display.php
-                        for (i = 0; i < $scope.phones.length; i++) {
-                            availableTags[i] = $scope.phones[i][0];
-                        }
-                
-                    // use autocomplete after typing in #name field
-                        $("#name").autocomplete({
-                            source: availableTags,
-                            delay: 1000
-                        });
+                    for (i = 0; i < $scope.phones.length; i++) {
+                        availableTags[i] = $scope.phones[i][0];
+                    }
 
-                    }); // AJAX displa.php end
-        
-        
-        
+                    // use autocomplete after typing in #name field with 1 sec delay for more smooth 
+                    $("#name").autocomplete({
+                        source: availableTags,
+                        delay: 1000
+                    });
+
+                }); // AJAX display.php end
+
+
+            //displaying checkboxex with resolutions, and add to filter
             $http.get("php/resolution.php")
                 .then(function (result) {
                     $scope.checks = result.data;
-                    $scope.searchResolution = function (reso) {
-                        console.log(reso)
-                    }
-                });
+
+                    // =========================TUTAJ POTRZEBNA POMOC======================function checkbox filter=====
+                    // creating empty array
+                    $scope.selected = [];
+                    
+                    //add/remove checked resolution to array
+                    $scope.toggleReso = function (item) {
+                        
+                        var idx = $scope.selected.indexOf(item.res);
+                        if (idx > -1) {
+                            $scope.selected.splice(idx, 1);
+                            console.log($scope.selected)
+                            
+                        } else {
+                            $scope.selected.push(item.res);
+                            console.log($scope.selected)
+                        }
+                    } //togglereso function end
+                    
+                    
+                    //=============================================================================
+                }); // AJAX resolution.php end
+
             //===== creating custom filters =====
 
             //size of phone display filter

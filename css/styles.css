@@ -19,7 +19,8 @@ body {
   margin-right: auto; }
 
 .custom-hamburger {
-  transition: all 1s; }
+  height: 50px;
+  width: 60px; }
 
 /* hide hamburger menu and nav icons in mobile view */
 @media screen and (max-width: 768px) {
