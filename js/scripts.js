@@ -125,26 +125,38 @@ app.controller("searchController", function ($scope, $http) {
                 .then(function (result) {
                     $scope.checks = result.data;
 
-                    // =========================TUTAJ POTRZEBNA POMOC======================function checkbox filter=====
-                    // creating empty array
-                    $scope.selected = [];
-                    
+                    // creating empty array which will be filled by selected resolutions
+                    $scope.selectedItem = [];
+
                     //add/remove checked resolution to array
                     $scope.toggleReso = function (item) {
-                        
-                        var idx = $scope.selected.indexOf(item.res);
+
+                        var idx = $scope.selectedItem.indexOf(item.res);
                         if (idx > -1) {
-                            $scope.selected.splice(idx, 1);
-                            console.log($scope.selected)
-                            
+                            $scope.selectedItem.splice(idx, 1);
+                            return $scope.selectedItem
                         } else {
-                            $scope.selected.push(item.res);
-                            console.log($scope.selected)
+                            $scope.selectedItem.push(item.res);
+                            return $scope.selectedItem
                         }
                     } //togglereso function end
-                    
-                    
-                    //=============================================================================
+
+                    //filter for resolutions
+                    $scope.searchingResolution = function (item) {
+                        
+                        //if array is filled with any data then activate filter
+                        if($scope.selectedItem.length > 0){
+                            
+                            //if phone resolution equal to any resolution in selectedItem then return true
+                            for(i=0;i < $scope.selectedItem.length;i++)
+                                {
+                                    if(item.resolution == $scope.selectedItem[i])
+                                        return true
+                                }
+                        }
+                        else
+                            return true
+                    }
                 }); // AJAX resolution.php end
 
             //===== creating custom filters =====

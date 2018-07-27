@@ -71,12 +71,12 @@
                 <div class="row justify-content-center">
                     <!-- top content nav with counting and icons list/blocks -->
                     <div class="d-flex col-12">
-                        <div class="p-2 flex-grow-1">Znaleziono {{ count.length}} / {{ phones.length}} elementow.</div>
+                        <div class="p-2 flex-grow-1">Znaleziono {{ count.length}} / {{ phones.length}} elementów</div>
                         <div class="p-2 custom-icons" id="list"><img src="images/icons/png/001-list.png" title="Widok listy"></div>
                         <div class="p-2 custom-icons" id="block"><img src="images/icons/png/002-four-squares-list.png" title="Widok kafelkowy"></div>
                     </div>
                     <!-- cards with filtered data -->
-                    <div ng-repeat="phone in phones | filter: phone.name = name | filter: searchSize | filter: searchRam | filter: searchBattery | filter: searchMemory | limitTo: 8 as count" class="custom-card">
+                    <div ng-repeat="phone in phones | filter: phone.name = name | filter: searchSize | filter: searchRam | filter: searchBattery | filter: searchMemory | filter: searchingResolution | limitTo: 10 as count" class="custom-card">
                         <div class="row">
                             <div class="col-4 custom-image">
 
